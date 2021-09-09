@@ -8,3 +8,16 @@ before_install:
 
 script:
   - docker run -e CI=true truongnguyen/docker-prod-grade npm run test 
+
+deploy:
+  provide: elasicbeanstalk
+  region: "ap-southeast-1"
+  app: "docker-production"
+  env: "Dockerproduction-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-207542482424"
+  bucket_path: 'docker-production'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+
