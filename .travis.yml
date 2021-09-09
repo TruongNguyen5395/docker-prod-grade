@@ -10,7 +10,7 @@ script:
   - docker run -e CI=true truongnguyen/docker-prod-grade npm run test 
 
 deploy:
-  provide: elasicbeanstalk
+  provider: elasicbeanstalk
   region: "ap-southeast-1"
   app: "docker-production"
   env: "Dockerproduction-env"
